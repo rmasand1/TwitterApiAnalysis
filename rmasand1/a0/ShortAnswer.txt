@@ -1,0 +1,201 @@
+Enter your responses inline below and push this file to your private GitHub
+repository.
+
+
+1. Assume I plan to use the friend_overlap function above to quantify the
+similarity of two users. E.g., because 344 is larger than 1, I conclude that
+Jill Stein and Gary Johnson are more similar than Hillary Clinton and Donald
+Trump.
+
+How is this approach misleading? How might you fix it?
+
+friend_overlap function gives us the common followers between 2 users. The number of users each candidate follows has  a large difference. For eg, Dr. Jill Stein follows 4159 people whereas DonaldTrump follows hardly 42 people. 
+Taking Donald Trump for examples mainly follows his family members and organizations
+Dr Jill Stein also follows people in Trumps campaign.
+Therefore, the friends_overlap function can count the common friends, but not give an idea of their similarity.
+
+To fix this approach, we could use the overlap function to get the common friends.
+Then we can compare on basis of timeline mentions(using GET  statuses/mention_timelines)  of the common friends. If the common friends mention both almost equivalently, we can say that they are similar.
+We can also get the retweets by the users, compare them and see if they are on similar topics or by the same people.
+
+According to the data we collect, we can categorize the friends for each candidate and based on that check if at any point two users have people from the same domain (like music, politics, etc)
+
+
+
+
+
+
+
+
+
+
+2. Looking at the output of your followed_by_hillary_and_donald function, why
+do you think this user is followed by both Hilary Clinton and Donald Trump,
+who are rivals? Do some web searches to see if you can find out more
+information.
+
+
+The user followed by Hillary Clinton and Donald Trump is Earvin Magic Johnson.
+Earvin Magic Johnson is followed by Hillary Clinton as he is a big supporter of hers and endorses her for President.
+Magic Johnson opposes Donald Trump and has also quoted "I dont hate Trump. We can be friends after Hillary wins" (tmz)
+
+
+
+
+
+
+
+
+
+
+
+3. There is a big difference in how many accounts each candidate follows (Gary
+Johnson follows over 3K accounts, while Donald Trump follows less than
+50). Why do you think this is? How might that affect our analysis?
+
+All 4 candidates have a different number of users they follow.
+Everybody has a different way of following users on Twitter. For eg, major of users Donald Trump follows are his family member or his own organizations. Some people believe in following very few people while others follow as many as they like.
+
+This affects our analysis as we don't have a benchmark to work with. The number of users each candidate follows varies in a large number. Therefore, our data isn't equally distributed and hence it makes a difference on our analysis.
+
+According to the example of Donald Trump, that much information of him following his own organizations or family does not give much information about him. Similar concept would apply to the other candidates.
+
+
+
+
+
+
+4. The follower graph we've collected is incomplete. To expand it, we would
+have to also collect the list of accounts followed by each of the
+friends. That is, for each user X that Donald Trump follows, we would have to
+also collect all the users that X follows. Assuming we again use the API call
+https://dev.twitter.com/rest/reference/get/friends/ids, how many requests will
+we have to make? Given how Twitter does rate limiting
+(https://dev.twitter.com/rest/public/rate-limiting), approximately how many
+minutes will it take to collect this data?
+
+
+We need to make a call to the friends of friends of each candidate.
+The total number of calls made would be the total of the number of friends for each candidate.
+that is, DrJillStein 4159 + GovGaryJohnson 3124 +  HillaryClinton 748 + realDonaldTrump 42= 8073
+Therefore, we will have to make 8073 requests.
+
+According to Twitter rate limiting, in a 15 minute window we can make 15 requests. So, to make 8073 requests, it will take us 8073 minutes.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
